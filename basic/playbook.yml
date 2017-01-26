@@ -3,4 +3,4 @@
 - hosts: all
   tasks:
    - name: Install Basic
-     apt: zsh git update_cache=true
+     apt: zsh git aptly update_cache=true
