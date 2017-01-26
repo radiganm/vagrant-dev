@@ -1,0 +1,23 @@
+## Vagrantfile for gnss-sdr
+## Mac Radigan
+
+Vagrant.configure("2") do |config|
+
+  config.vm.box = "ubuntu/trusty64"
+
+# config.vm.synced_folder "./", "/data", create: true, group: "sdr", owner: "sdr"
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "GNSS SDR Development Environment"
+    v.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+
+  config.ssh.insert_key = false
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.verbose = "v"
+    ansible.playbook = "playbook.yml"
+  end
+end
+
+## *EOF*

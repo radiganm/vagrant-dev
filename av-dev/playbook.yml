@@ -1,0 +1,11 @@
+---
+
+- hosts: all
+  tasks:
+   - name: Install Synaptic Packages
+     apt: pkg=glxgears                    state=installed update_cache=true
+     apt: pkg=jackd1                      state=installed update_cache=true
+     apt: pkg=qjackctl                    state=installed update_cache=true
+     apt: pkg=mesa-utils                  state=installed update_cache=true
+     apt: pkg=timidity                    state=installed update_cache=true
+     apt: pkg=timidity-interfaces-extra   state=installed update_cache=true

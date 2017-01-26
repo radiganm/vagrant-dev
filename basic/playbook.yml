@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  tasks:
+   - name: Install Basic
+     apt: zsh git update_cache=true

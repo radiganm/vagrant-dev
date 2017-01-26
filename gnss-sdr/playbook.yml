@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  tasks:
+   - name: Install GNSS-SDR
+     apt: pkg=gnss-sdr state=installed update_cache=true
