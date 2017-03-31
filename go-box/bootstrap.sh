@@ -12,14 +12,17 @@ fi
 
 # Install Bazel
 
-add-apt-repository ppa:webupd8team/java
-apt-get update -q
-apt-get install oracle-java8-installer -y -q
+#add-apt-repository ppa:webupd8team/java
+#apt-get update -q
+#apt-get install oracle-java8-installer -y -q
+apt-get install -y -q java-8-openjdk
 
 echo "deb [arch=amd64] http://storage.googleapis.com/bazel-apt stable jdk1.8" | tee /etc/apt/sources.list.d/bazel.list
 curl https://bazel.build/bazel-release.pub.gpg | apt-key add -
 
 apt-get update -q
-apt-get install bazel -y -q
+apt-get install -y -q bazel
 
 cp /usr/local/bazel/bin/bazel-complete.bash /etc/bash_completion.d/
+
+## *EOF*
