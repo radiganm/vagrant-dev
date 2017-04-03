@@ -5,6 +5,12 @@
 
     config.vm.box = "ubuntu/yakkety64"
 
+# config.vm.provision :shell, inline: <<-SHELL
+#   echo 'vagrant ALL=(ALL) NOPASSWD: ALL' > /etc/sudoers.d/vagrant
+#   chmod 0440 /etc/sudoers.d/vagrant
+#   usermod -a -G sudo vagrant
+#SHELL
+
     config.vm.provider "virtualbox" do |v|
       v.name = "Common Lisp Development Environment"
       v.customize ["modifyvm", :id, "--memory", "1024"]
@@ -15,7 +21,18 @@
     config.ssh.forward_agent = true
     config.ssh.shell         = "/bin/bash"
 
-    config.vm.provision :shell, :path => "bootstrap.sh"
+    config.vm.synced_folder "./data", "/data", create: true, group: "ubuntu", owner: "ubuntu"
+    config.vm.synced_folder "./bootstrap", "/home/ubuntu/host/bootstrap", create: true, group: "ubuntu", owner: "ubuntu"
+
+    config.vm.provision :shell, :path => "bootstrap/bootstrap.sh"
+    config.vm.provision :shell, :path => "bootstrap/user-env.sh", privileged: false
+
+    config.ssh.insert_key    = true
+    config.ssh.forward_x11   = true
+    config.ssh.forward_agent = true
+    config.ssh.shell         = "/bin/bash"
+
   end
+
 
 ## *EOF*

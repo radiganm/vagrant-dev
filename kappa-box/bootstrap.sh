@@ -15,7 +15,7 @@
   adduser kafka -m
   adduser kafka sudo
   wget "http://mirror.cc.columbia.edu/pub/software/apache/kafka/0.8.2.1/kafka_2.11-0.8.2.1.tgz" -O /tmp/kafka.tgz
-  (mkdir -p /opt/kafka && cd /opt/kafka && tar -xvzf ~/Downloads/kafka.tgz --strip 1)
+  (mkdir -p /opt && cd /opt && tar -xvzf ~/Downloads/kafka.tgz && ln -fs kafka kafka_2.11-0.8.2.1)
   echo "delete.topic.enable=true" >> /opt/kafka/config/server.properties
 
   # KafkaT
@@ -33,6 +33,6 @@ EOT
   cat ~/.ssh/id_rsa.pub >>/home/vagrant/.ssh/authorized_keys
   chmod 0700 /home/vagrant/.ssh
   chmod 0600 /home/vagrant/.ssh/authorized_keys
-  chown -R vagrant /home/vagrant/.ssh
+  chown -R ubuntu /home/vagrant/.ssh
 
 ## *EOF*
