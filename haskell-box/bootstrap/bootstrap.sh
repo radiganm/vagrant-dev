@@ -3,7 +3,7 @@
 ## Mac Radigan, Eric Paniagua
 
   apt-get update -q
-  apt-get install -y \
+  apt-get install -y -q \
     gcc \
     make \
     curl \
@@ -34,7 +34,7 @@
   chsh -s /bin/zsh ubuntu
 
   # Install Haskell Stack
-  apt-get install -y -q haskell-stack
+  apt-get install -y haskell-stack
   stack upgrade --git
   stack upgrade
 

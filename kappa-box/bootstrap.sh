@@ -18,7 +18,7 @@
   (mkdir -p /opt && cd /opt && tar -xvzf ~/Downloads/kafka.tgz && ln -fs kafka kafka_2.11-0.8.2.1)
   echo "delete.topic.enable=true" >> /opt/kafka/config/server.properties
 
-  # KafkaT
+  # Kafkat
   sudo apt-get install -y -q ruby ruby-dev build-essential
   sudo gem install kafkat --source https://rubygems.org --no-ri --no-rdoc
   echo >~/.kakatcfg <<EOT
