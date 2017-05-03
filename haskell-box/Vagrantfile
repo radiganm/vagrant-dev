@@ -1,0 +1,28 @@
+## Vagrantfile for haskell-box
+## Mac Radigan, Eric Paniagua
+
+  Vagrant.configure("2") do |config|
+
+    config.vm.box = "ubuntu/yakkety64"
+
+    config.vm.provider "virtualbox" do |v|
+      v.name = "Haskell Development Environment"
+      v.customize ["modifyvm", :id, "--memory", "1024"]
+    end
+
+   #config.ssh.insert_key      = false
+    config.ssh.insert_key      = true
+    config.ssh.forward_x11     = true
+    config.ssh.forward_agent   = true
+    config.ssh.shell           = "/bin/bash"
+    config.vbguest.auto_update = false
+
+    config.vm.synced_folder "./data", "/data", create: true, group: "ubuntu", owner: "ubuntu"
+    config.vm.synced_folder "./bootstrap", "/home/ubuntu/host/bootstrap", create: true, group: "ubuntu", owner: "ubuntu"
+
+    config.vm.provision :shell, :path => "bootstrap/bootstrap.sh"
+    config.vm.provision :shell, :path => "bootstrap/user-env.sh", privileged: false
+
+  end
+
+## *EOF*
