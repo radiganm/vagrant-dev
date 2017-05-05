@@ -5,6 +5,6 @@
 .DEFAULT_GOAL := build
 
 build:
-	bazel build
+	bazel build :lib
 
 ## *EOF*

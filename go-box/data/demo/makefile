@@ -5,6 +5,7 @@
 .DEFAULT_GOAL := build
 
 build:
-	bazel build
+	$(MAKE) -C ./lib
+	$(MAKE) -C ./bin
 
 ## *EOF*
