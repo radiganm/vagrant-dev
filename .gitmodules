@@ -1,0 +1,3 @@
+[submodule "submodules/x86-kernel"]
+	path = submodules/x86-kernel
+	url = https://github.com/ashleygwilliams/x86-kernel.git
