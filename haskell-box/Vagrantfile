@@ -15,7 +15,7 @@
     config.ssh.forward_x11     = true
     config.ssh.forward_agent   = true
     config.ssh.shell           = "/bin/bash"
-    config.vbguest.auto_update = false
+   #config.vbguest.auto_update = false
 
     config.vm.synced_folder "./data", "/data", create: true, group: "ubuntu", owner: "ubuntu"
     config.vm.synced_folder "./bootstrap", "/home/ubuntu/host/bootstrap", create: true, group: "ubuntu", owner: "ubuntu"

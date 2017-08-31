@@ -31,11 +31,15 @@
     gem install github-auth
   fi
 
-  chsh -s /bin/zsh ubuntu
+ #chsh -s /bin/zsh ubuntu
 
-  # Install Haskell Stack
-  apt-get install -y haskell-stack
-  stack upgrade --git
-  stack upgrade
+  ## Install Haskell Stack
+ #apt-get install -y haskell-stack
+ #stack upgrade --git
+ #stack upgrade
+  curl -sSL https://get.haskellstack.org/ | sh
+ #stack setup
+ #stack upgrade
+  stack install music-suite
 
 ## *EOF*
